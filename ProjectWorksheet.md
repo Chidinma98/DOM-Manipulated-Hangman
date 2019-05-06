@@ -8,41 +8,55 @@ You are **responsible** for scheduling time with your squad to seek approval for
 
 |  Day | Deliverable | Status
 |---|---| ---|
-|Sep 25th| Project Description | Incomplete
-|Sep 25th| Wireframes / Priority Matrix / Functional Components | Incomplete
-|Sep 26th| Core Application Structure (HTML, CSS, etc.) | Incomplete
-|Sep 27th| Pseudocode / actual code | Incomplete
-|Sep 28th| Initial Clickable Model  | Incomplete
-|Sep 29th| MVP | Incomplete
-|Sep 30th| Present | Incomplete
+|May 6th| Project Aprroval/Wireframing (HTML, CSS)| Incomplete
+|May 7th| Some javascript  | Incomplete
+|May 8th| All javascript | Incomplete
+|May 8th|  | Incomplete
+|May 8th| Initial Clickable Model  | Incomplete
+|May 9th| MVP | Incomplete
+|May 10th| Present | Incomplete
 
 
 ## Project Description
 
-Use this section to describe your final project and perhaps any links to relevant sites that help convey the concept and\or functionality.
+This game will be a combination of Hangman and Wheel of Fortune. Three players take turns either guessing a letter or a word that matches the chosen word in the array.
+
+If the user decides to  guess a letter and the letter is inside the word, the user gets a point. If the letter is not inside the word they lose a point.
+
+However, the player can also choose to guess the word. In each case they risk losing or gaining 10 additional points depending on whether the word they guessed is correct.
+
+The game ends when the word is guessed correctly or when the player hits restart game.
+
+The player with the most points win.
+
 
 ## Wireframes
 
-Upload images of wireframe to cloudinary and add the link here with a description of the specific wireframe.
+SEE IMAGES IN PROJECT-1 REPO
 
 ## Priority Matrix
 
 Include a full list of features that have been prioritized based on the `Time and Importance` Matix.  
 
 ### MVP/PostMVP - 5min
+My MVP is just a working hangman game that is able to compare letters and words to imputed values. 
 
-The functionality will then be divided into two separate lists: MPV and PostMVP.  Carefully decided what is placed into your MVP as the client will expect this functionality to be implemented upon project completion.  
+
 
 #### MVP 
 
-- Find and use external api 
-- Render data on page 
-- Allow user to choose favorites 
-- Save their choices in firebase
+•	Function that Iterates through all the Players, depending on whose turn it is.
+•	Button that allows the user to either solve the Puzzle or Simply guess	a letter.
+•	If they choose to Solve the puzzle. Solve the Puzzle Function Runs
+•	If they choose to guess a letter, Guess the letter Function Runs.
+•	Another Function that Tallies up the Points. If they guess incorrectly their Points Go Back to Zero.
+•	Once the word is Correct, the Game Resets and Another word is chosen from the Array
+
 
 #### PostMVP 
 
-- Add user auth
+Some additional features are that I can create a customizable number of players.
+
 
 
 Time frames are also key in the development cycle.  You have limited time to code all phases of the game.  Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add and additional hour or two to each component to play it safe.
