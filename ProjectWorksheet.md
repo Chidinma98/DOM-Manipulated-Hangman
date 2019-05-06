@@ -8,12 +8,12 @@ You are **responsible** for scheduling time with your squad to seek approval for
 
 |  Day | Deliverable | Status
 |---|---| ---|
-|May 6th| Project Aprroval/Wireframing (HTML, CSS)| Incomplete
-|May 7th| Some javascript  | Incomplete
-|May 8th| All javascript | Incomplete
-|May 8th|  | Incomplete
-|May 8th| Initial Clickable Model  | Incomplete
-|May 9th| MVP | Incomplete
+|May 6th| Project Aproval/Wireframing (HTML, CSS)| Incomplete
+|May 7th| Finish Functions 1 -4  | Incomplete
+|May 8th| Finish Function 5 & 6 | Incomplete
+|May 8th| Final Commits/ bug fixing | Incomplete
+|May 8th| Testing/MVP | Incomplete
+|May 9th| Post MVP | Incomplete
 |May 10th| Present | Incomplete
 
 
@@ -35,8 +35,7 @@ The player with the most points win.
 SEE IMAGES IN PROJECT-1 REPO
 
 ## Priority Matrix
-
-Include a full list of features that have been prioritized based on the `Time and Importance` Matix.  
+SEE Project-1 repo 
 
 ### MVP/PostMVP - 5min
 My MVP is just a working hangman game that is able to compare letters and words to imputed values. 
@@ -45,12 +44,24 @@ My MVP is just a working hangman game that is able to compare letters and words 
 
 #### MVP 
 
-•	Function that Iterates through all the Players, depending on whose turn it is.
-•	Button that allows the user to either solve the Puzzle or Simply guess	a letter.
-•	If they choose to Solve the puzzle. Solve the Puzzle Function Runs
-•	If they choose to guess a letter, Guess the letter Function Runs.
-•	Another Function that Tallies up the Points. If they guess incorrectly their Points Go Back to Zero.
-•	Once the word is Correct, the Game Resets and Another word is chosen from the Array
+
+
+Necessary Functions:
+1.	Function that Assigns Turns to Players
+2.	Solve the Puzzle function that checks whether the input matches the world in play.
+3.	Choose a letter Function that Checks Whether the letter inputted matches any letters in the word in play.
+4.	Function that keeps track of the Points and announces the Winner After Every Game
+5.	Make sure Every-time the game runs, none of the words are repeated.
+6.	Another Function that keeps track of the letters used.
+
+
+Necessary Arrays:
+1.	Array for the words in play.
+2.	Array that shows all the letters used.
+
+Necessary Classes
+1.	Players
+
 
 
 #### PostMVP 
