@@ -67,7 +67,7 @@ Necessary Classes
 #### PostMVP 
 
 Some additional features are that I can create a customizable number of players.
-
+Add actual depictions of hangman.
 
 
 Time frames are also key in the development cycle.  You have limited time to code all phases of the game.  Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add and additional hour or two to each component to play it safe.
