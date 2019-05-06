@@ -2,6 +2,8 @@
 
 #### Overview
 
+![Wireframe](wireFrame/IMG_1796.JPG)
+
 Let's start out with something fun - a game!
 
 Everyone will get a chance to be creative, and work through some really tough programming challenges. It's up to you to use what you've learned to come up with a fun and interesting game.
