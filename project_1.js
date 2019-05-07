@@ -9,6 +9,7 @@ let randWord = Math.floor((Math.random() * 4))
 let loopWord = category[randWord]
 let lArray = (loopWord.split(''))
 // console.log(loopWord.split(''))
+console.log(loopWord);
 
 
 
@@ -16,12 +17,16 @@ let wordsPlay = () => {
     let words = document.querySelector('.blank-Words');
     let dash = document.createElement('p');
 
+    // console.log(loopWord);
     for (let i = 0; i < loopWord.length; i++) {
         let dash = document.createElement('h2');
+        
         words.appendChild(dash)
+        // console.log(words)
         dash.textContent = ('-')
 
     }
+    console.log(words)
 
 }
 
@@ -32,8 +37,6 @@ wordButton.addEventListener('click', function checkWords() {
 
     let guessWord = document.querySelector('#word-field').value;
     let uGuessWord = String(guessWord.toUpperCase());
-
-
     if (category.includes(uGuessWord)) {
         console.log(true)
     }
@@ -43,9 +46,8 @@ wordButton.addEventListener('click', function checkWords() {
 })
 
 
-
 let byeFunc = () => {
-    console.log('bye')
+    console.log('Not A Match')
 }
 
 
