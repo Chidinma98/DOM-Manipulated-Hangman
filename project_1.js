@@ -16,14 +16,11 @@ let lArray = (loopWord.split(''))
 let wordsPlay = () => {
     let words = document.querySelector('.blank-Words');
     // let dash = document.createElement('p');
-    let dash = document.createElement('h2');
-    // dash.textContent = ('-')
-    words.appendChild(dash)
     // console.log(loopWord);
     for (let i = 0; i < loopWord.length; i++) {
-        // let dash = document.createElement('h2');
+        let dash = document.createElement('h2');
         // // dash.textContent = ('-')
-        // words.appendChild(dash)
+        words.appendChild(dash)
         // console.log(words)
         dash.textContent += ('-')
 
@@ -50,27 +47,23 @@ wordButton.addEventListener('click', function checkWords() {
    
    
     if (category.includes(uGuessWord)) {
+        let allDashes = document.querySelectorAll('h2');
+        for (let i = 0; i < allDashes.length; i++) {
+           allDashes[i].innerHTML = ''
+            
+        }
         document.querySelector('h2').innerHTML = uGuessWord;
-
     }
     else {
         console.log(false)
     }
 
 
-    // for (let i = 0; i < cate.length; i++) {
-    //     const element = array[i];
-        
-    // }
-
-
-//     console.log(document.querySelectorAll(h2))
+   
  })
 
 
-//
-//The guessWord should be equal to the h2 at different locations
-//h2[i].textContent = (guessWord) 
+
 
 console.log(document.querySelectorAll('h2')[0])
 
