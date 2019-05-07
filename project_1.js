@@ -11,22 +11,31 @@ let lArray = (loopWord.split(''))
 // console.log(loopWord.split(''))
 // console.log(loopWord);
 
+// let lArray = ['B','E'A]
+
 let wordsPlay = () => {
     let words = document.querySelector('.blank-Words');
     // let dash = document.createElement('p');
-
+    let dash = document.createElement('h2');
+    // dash.textContent = ('-')
+    words.appendChild(dash)
     // console.log(loopWord);
     for (let i = 0; i < loopWord.length; i++) {
-        let dash = document.createElement('h2');
-        // dash.textContent = ('-')
-        words.appendChild(dash)
+        // let dash = document.createElement('h2');
+        // // dash.textContent = ('-')
+        // words.appendChild(dash)
         // console.log(words)
-        dash.textContent = ('-')
+        dash.textContent += ('-')
 
     }
     console.log(words)
 
 }
+
+
+
+
+
 
 wordsPlay();
 
@@ -40,12 +49,13 @@ wordButton.addEventListener('click', function checkWords() {
    
    
    
-    // if (category.includes(uGuessWord)) {
-    //     console.log(true)
-    // }
-    // else {
-    //     console.log(false)
-    // }
+    if (category.includes(uGuessWord)) {
+        document.querySelector('h2').innerHTML = uGuessWord;
+
+    }
+    else {
+        console.log(false)
+    }
 
 
     // for (let i = 0; i < cate.length; i++) {
