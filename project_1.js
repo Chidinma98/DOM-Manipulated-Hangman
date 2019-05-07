@@ -1,45 +1,91 @@
 // Arrays for Words & Letters
-let category = ['Beach', 'Sun', 'Pool', 'Vacation']
-let guessWord = document.querySelector('#word-field').value
+let category = ['BEACH', 'SUN', 'POOL', 'VACATION']
+// let guessWord = document.querySelector('#word-field')
+// let ans = guess.value
 let letterButton = document.querySelector('#letter')
 let wordButton = document.querySelector('#word')
 
-
-
-
-
-let wordsPlay = ()=> {
-
 let randWord = Math.floor((Math.random() * 4))
-let words = document.querySelector('.blank-Words');
-
-
 let loopWord = category[randWord]
-let dash = document.createElement('p');
+let lArray = (loopWord.split(''))
+// console.log(loopWord.split(''))
 
 
-for (let i = 0; i < loopWord.length; i++) {
-   
-   let dash = document.createElement('h1');
-   words.appendChild(dash)
-   dash.textContent = ('-')
+
+let wordsPlay = () => {
+    let words = document.querySelector('.blank-Words');
+    let dash = document.createElement('p');
+
+    for (let i = 0; i < loopWord.length; i++) {
+        let dash = document.createElement('h2');
+        words.appendChild(dash)
+        dash.textContent = ('-')
+
+    }
 
 }
-
-}
-
-
-
 
 wordsPlay();
 
-wordButton.addEventListener('click', function checkWords(guessWord){
-guessWord.preventDefault();
+wordButton.addEventListener('click', function checkWords() {
+    event.preventDefault();
+
+    let guessWord = document.querySelector('#word-field').value;
+    let uGuessWord = String(guessWord.toUpperCase());
 
 
-console.log(guessWord);
+    if (category.includes(uGuessWord)) {
+        console.log(true)
+    }
+    else {
+        console.log(false)
+    }
+})
+
+
+
+let byeFunc = () => {
+    console.log('bye')
+}
+
+
+letterButton.addEventListener('click', function checkLetters() {
+    event.preventDefault();
+    let guessLetter = document.querySelector('#word-field').value;
+    let uGuessLetter = String(guessLetter.toUpperCase());
+    
+    let hiFunc = () => {
+       let location = lArray.indexOf(uGuessLetter)
+       let blank = document.querySelectorAll('h2')[location];
+       
+       blank.textContent = guessLetter
+    }
+    
+    
+    
+    
+    // let lArray = (loopWord.split(''))
+    let checkMatch = () => {
+        return lArray.includes(uGuessLetter)
+    }
+    
+    if (lArray.some(checkMatch)) {
+        hiFunc();
+    }
+    else {
+        byeFunc();
+    }
+
+
+
+
 
 
 })
 
+//Function that Transfers guesses on to the Screen
 
+//dash.textContent = guessLetter;
+
+// let blank = document.querySelectorAll('h2')[location];
+// blank.textContent(guessLetter)
