@@ -46,3 +46,26 @@ h1 {
     text-align: center;
     width: 100%
 }
+
+#subject {
+    display: flex;
+    /* align-items: center; */
+     justify-content: space-around;
+    /* text-align: center;
+    width: 100% */ 
+    
+    
+
+}
+
+.choices {
+
+    position: relative;
+    top: 40px;
+    border: 4px 6px;
+    background-color:violet;
+  
+    
+
+
+}
