@@ -4,7 +4,7 @@
 
 let objTopic = {
 
-    Season: ['B', 'SU', 'OOL', 'VACA', 'SWIMM'],
+    Season: ['Boy', 'SUn', 'OOL', 'VACA', 'SWIMM'],
 
     Summer: ['n'],
 
@@ -26,7 +26,7 @@ jSeasons.addEventListener('click', yay)
 
 //MVP
 
-let category = ['B', 'SU', 'OOL', 'VACA', 'SWIMM']
+let category = ['SUN', 'SUN', 'VACATION', 'SWIMMING']
 let playerNumber = 4;
 let altPlayer = document.querySelector('#userName')
 
@@ -92,6 +92,7 @@ let wordFunction = () => {
             winner();
 
 
+
             if (playerNumber === 0) {
                 player0Points += 10
                 vPoints.innerHTML = `Points: ${player0Points}`
@@ -106,7 +107,7 @@ let wordFunction = () => {
                 vPoints.innerHTML = `Points: ${player2Points}`
             }
 
-            setInterval(newGame, 850)
+            setInterval(reFresh, 850)
         }
         else {
             alert('Incorect!')
@@ -153,12 +154,13 @@ let letterFunction = () => {
                 blank.textContent = uGuessLetter;
             }
 
+            // adapted from: https://www.textfixer.com/tutorials/javascript-line-breaks.php87
             guessedAnswer = document.querySelector(".blank-Words").innerText.replace(/(\r\n|\n|\r)/gm, "")
             console.log(guessedAnswer);
 
             if (isGuessedword()) {
                 winner();
-                setTimeout(newGame, 850)
+                setTimeout(reFresh, 850)
             }
 
 
@@ -212,7 +214,7 @@ let switchPlayers = () => {
     let run = () => {
         currentPlayer();
     }
-    setInterval(run, 8000)
+    setInterval(run, 5000)
 }
 
 let pointsReturn = () => {
@@ -231,6 +233,11 @@ let pointsReturn = () => {
 }
 
 function winner() {
+    console.log(category);
+    category.splice(randWord,1);
+    console.log(category);
+    // clearWord();
+    //wordsPlay();
     if (player0Points > player1Points && player0Points > player2Points) {
         alert('Player 0 Wins')
     }
@@ -249,14 +256,16 @@ function winner() {
 
 }
 
+
+
 setInterval(pointsReturn, 850)
 
 let newGame = () => {
-    clearInterval(pointsReturn)
+    
     letterFunction();
     wordFunction();
     switchPlayers();
-    setInterval(pointsReturn, 850)
+    
 }
 
 newGame();
