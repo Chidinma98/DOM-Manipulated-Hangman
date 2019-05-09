@@ -1,23 +1,34 @@
 // Arrays for Words & Letters
 
+//Post MVP
+
 let objTopic = {
+
+    Season: ['B', 'SU', 'OOL', 'VACA', 'SWIMM'],
 
     Summer: ['n'],
 
     Winter: ['u'],
 
-    Sports: ['l'],
+    Sports: ['l']
 }
 
+let yay = () => {
+    console.log('yay')
+    jSeasons.style.backgroundColor = 'blue'
+    let season = objTopic.Season
+
+}
+
+let jSeasons = document.querySelector('#seasons')
+jSeasons.addEventListener('click', yay)
+
+
+//MVP
+
+let category = ['B', 'SU', 'OOL', 'VACA', 'SWIMM']
 let playerNumber = 4;
 let altPlayer = document.querySelector('#userName')
-// console.log(objTopic.keys)
-
-let reFresh = () => {
-    window.location.reload()
-}
-
-let category = ['BEACH', 'SUN', 'POOL', 'VACATION', 'SWIMMING']
 
 let locations = [];
 
@@ -33,12 +44,19 @@ let player1Points = 0
 let player2Points = 0
 
 let vPoints = document.querySelector('#value')
+let guessedAnswer = '';
+
+let reFresh = () => {
+    window.location.reload()
+}
 
 let wordsPlay = () => {
     let words = document.querySelector('.blank-Words');
 
     randWord = Math.floor((Math.random() * 5))
+
     loopWord = category[randWord]
+
     lArray = (loopWord.split(''))
 
     for (let i = 0; i < loopWord.length; i++) {
@@ -48,12 +66,10 @@ let wordsPlay = () => {
 
         dash.textContent += ('-')
     }
-    console.log(words)
+
 }
 
 wordsPlay();
-
-//This Function checks If The Word Matches
 
 let wordFunction = () => {
 
@@ -73,8 +89,8 @@ let wordFunction = () => {
             document.querySelector('h2').innerHTML = uGuessWord;
 
             alert(`You Have Solved The Puzzle`)
-            //Function that shows you the points for Each players in the Game.
-            //Another Function that restarts the game
+            winner();
+
 
             if (playerNumber === 0) {
                 player0Points += 10
@@ -90,24 +106,18 @@ let wordFunction = () => {
                 vPoints.innerHTML = `Points: ${player2Points}`
             }
 
-            setInterval(reFresh, 850)
+            setInterval(newGame, 850)
         }
         else {
             alert('Incorect!')
-
-
+            document.querySelector('#word-field').value = ""
         }
 
     }
 
     )
 
-   
 }
-
-
-let guessedAnswer = '';
-// console.log(guessedAnswer);
 
 let letterFunction = () => {
 
@@ -116,71 +126,46 @@ let letterFunction = () => {
         let guessLetter = document.querySelector('#word-field').value;
         let uGuessLetter = String(guessLetter.toUpperCase());
 
-        let byeFunc = () => {
-            alert('Incorect, You Lose 1 Point')
-        }
+
 
         let isGuessedword = () => {
-            // return category.includes(guessedAnswer)
             for (let i = 0; i < category.length; i++) {
                 if (category[i] === guessedAnswer) {
                     return true
-                   
                 }
-
             }
-            
+
             return false
         }
-
-
         let hiFunc = () => {
-
-
-
-            //  while (isGuessedword(guessedAnswer)) {
-
             for (let i = 0; i < lArray.length; i++) {
-
                 if (uGuessLetter === lArray[i]) {
                     locations.push(i)
 
-
-                    // guessedAnswer += uGuessLetter; // ?
-
-                    // console.log(guessedAnswer)
-
                 }
 
             }
-
-            // console.log(guessedAnswer)
-
 
 
             for (let i = 0; i < locations.length; i++) {
                 let blank = document.querySelectorAll('h2')[locations[i]];
                 console.log(blank);
                 blank.textContent = uGuessLetter;
-                // guessedAnswer += blank.textContent; // ?
-                // console.log(guessedAnswer)
             }
 
             guessedAnswer = document.querySelector(".blank-Words").innerText.replace(/(\r\n|\n|\r)/gm, "")
             console.log(guessedAnswer);
+
             if (isGuessedword()) {
-                setTimeout(reFresh, 850)
+                winner();
+                setTimeout(newGame, 850)
             }
 
 
             locations = [];
             document.querySelector('#word-field').value = ""
 
-            // }
         }
-
-        // let lArray = (loopWord.split(''))
-
 
         let checkMatch = () => {
             return lArray.includes(uGuessLetter)
@@ -188,7 +173,6 @@ let letterFunction = () => {
         if (lArray.some(checkMatch)) {
 
             hiFunc();
-
 
             if (playerNumber === 0) {
                 player0Points += 1
@@ -204,49 +188,32 @@ let letterFunction = () => {
                 vPoints.innerHTML = `Points: ${player2Points}`
             }
 
-
-
         }
         else {
-            byeFunc();
+            alert('Incorrect!')
+            document.querySelector('#word-field').value = ""
+
         }
 
     })
 
+
 }
-
-
-
-//Player Switch Function
-
 
 
 let switchPlayers = () => {
 
-
-
     let currentPlayer = () => {
         playerNumber = ((playerNumber + 1) % 3)
         altPlayer.innerHTML = `player: ${playerNumber}`;
-        // return((`player: ${playerNumber}`))
-        console.log(playerNumber)
+
     }
 
     let run = () => {
         currentPlayer();
-
     }
     setInterval(run, 8000)
 }
-
-// switchPlayers();
-// let altPlayer = document.querySelector('#userName')
-
-// letterFunction();
-// wordFunction();
-
-// Class to Instantiate the Players
-// Function That returns All Points
 
 let pointsReturn = () => {
 
@@ -261,18 +228,35 @@ let pointsReturn = () => {
     let jScore2 = document.querySelector('#score2')
     jScore2.innerHTML = (`player 2 Points : ${player2Points}`)
 
-
 }
 
+function winner() {
+    if (player0Points > player1Points && player0Points > player2Points) {
+        alert('Player 0 Wins')
+    }
 
+    else if (player1Points > player0Points && player1Points > player2Points) {
+        alert('Player 1 Wins')
+    }
+
+    else if (player2Points > player0Points && player2Points > player1Points) {
+        alert('Player 2 Wins')
+    }
+
+    else {
+        alert('tie')
+    }
+
+}
 
 setInterval(pointsReturn, 850)
 
 let newGame = () => {
+    clearInterval(pointsReturn)
     letterFunction();
     wordFunction();
     switchPlayers();
-
+    setInterval(pointsReturn, 850)
 }
 
 newGame();
