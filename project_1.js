@@ -89,11 +89,46 @@ wordButton.addEventListener('click', function checkWords() {
         }
 
     }
-    else {
-        alert('Incorect You loose 2 points')
+    
+    
+    else 
+    
+    
+    
+    {
+        alert('Incorect You loose 10 points')
+    
+    
+        if (playerNumber === 0) {
+            player0Points -= 10
+            vPoints.innerHTML = `Points: ${player0Points}`
+        }
+        else if (playerNumber === 1) {
+            player1Points -= 10
+            vPoints.innerHTML = `Points: ${player1Points}`
+        }
+
+        else if (playerNumber === 2) {
+            player2Points -= 10
+            vPoints.innerHTML = `Points: ${player2Points}`
+        }
+
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  }
    
- })
+ )
 
 // console.log(document.querySelectorAll('h2')[0])
 }
@@ -193,6 +228,24 @@ letterFunction();
 wordFunction();
 
 // Class to Instantiate the Players
+// Function That returns All Points
+
+let pointsReturn = () => {
+
+    let wScores = document.querySelector('#scores')
+
+    let jScore0 = document.querySelector('#score0')
+    jScore0.innerHTML = (`player 0 Points : ${player0Points}`)
+
+    let jScore1 = document.querySelector('#score1')
+    jScore1.innerHTML = (`player 1 Points : ${player1Points}`)
+
+    let jScore2 = document.querySelector('#score2')
+    jScore2.innerHTML = (`player 2 Points : ${player2Points}`)
 
 
+}
 
+// pointsReturn();
+
+setInterval(pointsReturn, 850)

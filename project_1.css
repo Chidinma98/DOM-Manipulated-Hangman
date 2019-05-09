@@ -21,7 +21,7 @@ h1 {
 #person {
     position: relative;
     top: 300px;
-    left: 350;
+    left: 350px;
 
 }
 
@@ -68,4 +68,15 @@ h1 {
     
 
 
+}
+
+#scores {
+    position: relative;
+    right: 100px;
+}
+
+#pScores {
+    position: relative;
+    left: 350px;
+    bottom: 5em;
 }
