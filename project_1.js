@@ -1,19 +1,19 @@
 // Arrays for Words & Letters
 
-let objTopic ={
+let objTopic = {
 
-Summer: ['n'],
+    Summer: ['n'],
 
-Winter: ['u'],
+    Winter: ['u'],
 
-Sports: ['l'],
+    Sports: ['l'],
 }
 
 let playerNumber = 4;
 let altPlayer = document.querySelector('#userName')
 // console.log(objTopic.keys)
 
-function reFresh() {
+let reFresh = () => {
     window.location.reload()
 }
 
@@ -25,9 +25,9 @@ let locations = [];
 let letterButton = document.querySelector('#letter')
 let wordButton = document.querySelector('#word')
 
-let randWord = Math.floor((Math.random() * 5))
-let loopWord = category[randWord]
-let lArray = (loopWord.split(''))
+let randWord = null
+let loopWord = null
+let lArray = null;
 
 let player0Points = 0
 let player1Points = 0
@@ -39,11 +39,16 @@ let vPoints = document.querySelector('#value')
 let wordsPlay = () => {
     let words = document.querySelector('.blank-Words');
 
+    randWord = Math.floor((Math.random() * 5))
+    loopWord = category[randWord]
+    lArray = (loopWord.split(''))
+
+
     for (let i = 0; i < loopWord.length; i++) {
         let dash = document.createElement('h2');
 
         words.appendChild(dash)
-       
+
         dash.textContent += ('-')
     }
     console.log(words)
@@ -55,145 +60,166 @@ wordsPlay();
 
 let wordFunction = () => {
 
-wordButton.addEventListener('click', function checkWords() {
-    event.preventDefault();
+    wordButton.addEventListener('click', function checkWords() {
+        event.preventDefault();
 
-    let guessWord = document.querySelector('#word-field').value;
-    let uGuessWord = String(guessWord.toUpperCase());
-   
+        let guessWord = document.querySelector('#word-field').value;
+        let uGuessWord = String(guessWord.toUpperCase());
 
-    if (category.includes(uGuessWord)) {
-        let allDashes = document.querySelectorAll('h2');
-        for (let i = 0; i < allDashes.length; i++) {
-           allDashes[i].innerHTML = ''
-            
-        }
-        document.querySelector('h2').innerHTML = uGuessWord;
 
-        alert(`You Have Solved The Puzzle`)
-        //Function that shows you the points for Each players in the Game.
-        //Another Function that restarts the game
-        
-        if (playerNumber === 0) {
-            player0Points += 10
-            vPoints.innerHTML = `Points: ${player0Points}`
+        if (category.includes(uGuessWord)) {
+            let allDashes = document.querySelectorAll('h2');
+            for (let i = 0; i < allDashes.length; i++) {
+                allDashes[i].innerHTML = ''
+
+            }
+            document.querySelector('h2').innerHTML = uGuessWord;
+
+            alert(`You Have Solved The Puzzle`)
+            //Function that shows you the points for Each players in the Game.
+            //Another Function that restarts the game
+
+            if (playerNumber === 0) {
+                player0Points += 10
+                vPoints.innerHTML = `Points: ${player0Points}`
+            }
+            else if (playerNumber === 1) {
+                player1Points += 10
+                vPoints.innerHTML = `Points: ${player1Points}`
+            }
+
+            else if (playerNumber === 2) {
+                player2Points += 10
+                vPoints.innerHTML = `Points: ${player2Points}`
+            }
+
+            setInterval(reFresh, 850)
         }
-        else if (playerNumber === 1) {
-            player1Points += 10
-            vPoints.innerHTML = `Points: ${player1Points}`
+        else {
+            alert('Incorect!')
+
+
         }
 
-        else if (playerNumber === 2) {
-            player2Points += 10
-            vPoints.innerHTML = `Points: ${player2Points}`
-        }
 
     }
-    
-    
-    else 
-    
-    
-    
-    {
-        alert('Incorect You loose 10 points')
-    
-    
-        if (playerNumber === 0) {
-            player0Points -= 10
-            vPoints.innerHTML = `Points: ${player0Points}`
-        }
-        else if (playerNumber === 1) {
-            player1Points -= 10
-            vPoints.innerHTML = `Points: ${player1Points}`
-        }
 
-        else if (playerNumber === 2) {
-            player2Points -= 10
-            vPoints.innerHTML = `Points: ${player2Points}`
-        }
+    )
 
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  }
-   
- )
-
-// console.log(document.querySelectorAll('h2')[0])
+    // console.log(document.querySelectorAll('h2')[0])
 }
 
 
-
+let guessedAnswer = '';
+// console.log(guessedAnswer);
 
 let letterFunction = () => {
 
-letterButton.addEventListener('click', function checkLetters() {
-    event.preventDefault();
-    let guessLetter = document.querySelector('#word-field').value;
-    let uGuessLetter = String(guessLetter.toUpperCase());
+    letterButton.addEventListener('click', function checkLetters() {
+        event.preventDefault();
+        let guessLetter = document.querySelector('#word-field').value;
+        let uGuessLetter = String(guessLetter.toUpperCase());
 
-    let byeFunc = () => {
-        alert('Incorecct, You Lose 1 Point')
-    
-    
-    }
-    let hiFunc = () => {
-        
-        for (let i = 0; i < lArray.length; i++) {
+        let byeFunc = () => {
+            alert('Incorect, You Lose 1 Point')
+        }
 
-            if (uGuessLetter === lArray[i]) {
-                locations.push(i)
+        let isGuessedword = () => {
+            // return category.includes(guessedAnswer)
+            for (let i = 0; i < category.length; i++) {
+                if (category[i] === guessedAnswer) {
+                    return true
+                }
+
             }
+            return false
         }
 
-        for (let i = 0; i < locations.length; i++) {
-            let blank = document.querySelectorAll('h2')[locations[i]];
-            console.log(blank);
-            blank.textContent = uGuessLetter;
+
+        let hiFunc = () => {
+
+
+
+            //  while (isGuessedword(guessedAnswer)) {
+
+
+
+            for (let i = 0; i < lArray.length; i++) {
+
+                if (uGuessLetter === lArray[i]) {
+                    locations.push(i)
+
+
+                    // guessedAnswer += uGuessLetter; // ?
+
+                    // console.log(guessedAnswer)
+
+                }
+
+            }
+
+            // console.log(guessedAnswer)
+
+
+
+            for (let i = 0; i < locations.length; i++) {
+                let blank = document.querySelectorAll('h2')[locations[i]];
+                console.log(blank);
+                blank.textContent = uGuessLetter;
+                // guessedAnswer += blank.textContent; // ?
+                // console.log(guessedAnswer)
+            }
+
+            guessedAnswer = document.querySelector(".blank-Words").innerText.replace(/(\r\n|\n|\r)/gm, "")
+            console.log(guessedAnswer);
+            if (isGuessedword()) {
+                setTimeout(reFresh, 850)
+            }
+
+
+            locations = [];
+
+            // }
         }
-        locations = [];
 
-    }
+        // let lArray = (loopWord.split(''))
 
-    // let lArray = (loopWord.split(''))
-    let checkMatch = () => {
-        return lArray.includes(uGuessLetter)
-    }
-    if (lArray.some(checkMatch)) {
-        hiFunc();
-        if (playerNumber === 0) {
-            player0Points += 1
-            vPoints.innerHTML = `Points: ${player0Points}`
+
+
+
+        let checkMatch = () => {
+            return lArray.includes(uGuessLetter)
         }
-        else if (playerNumber === 1) {
-            player1Points += 1
-            vPoints.innerHTML = `Points: ${player1Points}`
+        if (lArray.some(checkMatch)) {
+
+            hiFunc();
+
+
+
+
+
+            if (playerNumber === 0) {
+                player0Points += 1
+                vPoints.innerHTML = `Points: ${player0Points}`
+            }
+            else if (playerNumber === 1) {
+                player1Points += 1
+                vPoints.innerHTML = `Points: ${player1Points}`
+            }
+
+            else if (playerNumber === 2) {
+                player2Points += 1
+                vPoints.innerHTML = `Points: ${player2Points}`
+            }
+
+
+
+        }
+        else {
+            byeFunc();
         }
 
-        else if (playerNumber === 2) {
-            player2Points += 1
-            vPoints.innerHTML = `Points: ${player2Points}`
-        }
-
-    
-    
-    }
-    else {
-        byeFunc();
-    }
-
-})
+    })
 
 }
 
@@ -207,25 +233,25 @@ let switchPlayers = () => {
 
 
 
-let currentPlayer = () => {
-playerNumber = ((playerNumber + 1) % 3)
-altPlayer.innerHTML = `player: ${playerNumber}`;
-// return((`player: ${playerNumber}`))
-console.log(playerNumber)
+    let currentPlayer = () => {
+        playerNumber = ((playerNumber + 1) % 3)
+        altPlayer.innerHTML = `player: ${playerNumber}`;
+        // return((`player: ${playerNumber}`))
+        console.log(playerNumber)
+    }
+
+    let run = () => {
+        currentPlayer();
+
+    }
+    setInterval(run, 8000)
 }
 
-let run = () => {
-    currentPlayer();
-    
-}
-setInterval(run, 10000)
-}
-
-switchPlayers();
+// switchPlayers();
 // let altPlayer = document.querySelector('#userName')
 
-letterFunction();
-wordFunction();
+// letterFunction();
+// wordFunction();
 
 // Class to Instantiate the Players
 // Function That returns All Points
@@ -249,3 +275,12 @@ let pointsReturn = () => {
 // pointsReturn();
 
 setInterval(pointsReturn, 850)
+
+let newGame = () => {
+    letterFunction();
+    wordFunction();
+    switchPlayers();
+
+}
+
+newGame();
