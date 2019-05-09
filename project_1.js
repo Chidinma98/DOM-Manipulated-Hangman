@@ -17,7 +17,6 @@ let reFresh = () => {
     window.location.reload()
 }
 
-
 let category = ['BEACH', 'SUN', 'POOL', 'VACATION', 'SWIMMING']
 
 let locations = [];
@@ -35,14 +34,12 @@ let player2Points = 0
 
 let vPoints = document.querySelector('#value')
 
-
 let wordsPlay = () => {
     let words = document.querySelector('.blank-Words');
 
     randWord = Math.floor((Math.random() * 5))
     loopWord = category[randWord]
     lArray = (loopWord.split(''))
-
 
     for (let i = 0; i < loopWord.length; i++) {
         let dash = document.createElement('h2');
@@ -101,12 +98,11 @@ let wordFunction = () => {
 
         }
 
-
     }
 
     )
 
-    // console.log(document.querySelectorAll('h2')[0])
+   
 }
 
 
@@ -129,9 +125,11 @@ let letterFunction = () => {
             for (let i = 0; i < category.length; i++) {
                 if (category[i] === guessedAnswer) {
                     return true
+                   
                 }
 
             }
+            
             return false
         }
 
@@ -141,8 +139,6 @@ let letterFunction = () => {
 
 
             //  while (isGuessedword(guessedAnswer)) {
-
-
 
             for (let i = 0; i < lArray.length; i++) {
 
@@ -178,13 +174,12 @@ let letterFunction = () => {
 
 
             locations = [];
+            document.querySelector('#word-field').value = ""
 
             // }
         }
 
         // let lArray = (loopWord.split(''))
-
-
 
 
         let checkMatch = () => {
@@ -193,9 +188,6 @@ let letterFunction = () => {
         if (lArray.some(checkMatch)) {
 
             hiFunc();
-
-
-
 
 
             if (playerNumber === 0) {
@@ -272,7 +264,7 @@ let pointsReturn = () => {
 
 }
 
-// pointsReturn();
+
 
 setInterval(pointsReturn, 850)
 
