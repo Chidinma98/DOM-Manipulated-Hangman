@@ -1,4 +1,4 @@
-// Arrays for Words & Letters
+
 
 //Post MVP
 
@@ -233,11 +233,7 @@ let pointsReturn = () => {
 }
 
 function winner() {
-    console.log(category);
-    category.splice(randWord,1);
-    console.log(category);
-    // clearWord();
-    //wordsPlay();
+    category.splice(randWord, 1); 
     if (player0Points > player1Points && player0Points > player2Points) {
         alert('Player 0 Wins')
     }
@@ -261,11 +257,11 @@ function winner() {
 setInterval(pointsReturn, 850)
 
 let newGame = () => {
-    
+
     letterFunction();
     wordFunction();
     switchPlayers();
-    
+
 }
 
 newGame();
