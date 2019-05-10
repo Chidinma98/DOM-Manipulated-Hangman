@@ -26,8 +26,8 @@ jSeasons.addEventListener('click', yay)
 
 //MVP
 
-let category = ['SUN', 'SUN', 'VACATION', 'SWIMMING']
-let playerNumber = 4;
+let category = ['SUN', 'VACATION', 'SWIMMING', 'PICNIC', 'POOL', 'BEACH']
+let playerNumber = 5;
 let altPlayer = document.querySelector('#userName')
 
 let locations = [];
