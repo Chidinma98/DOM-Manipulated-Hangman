@@ -9,6 +9,7 @@ top: 20px;
     position: relative;
     top: 390px;
     left: 400px;
+   
 }
 
 h1 {
@@ -63,8 +64,8 @@ h1 {
     position: relative;
     top: 40px;
     border: 4px 6px;
-    background-color:violet;
-  
+    /* background-color:violet; */
+  color: white;
     
 
 
@@ -121,3 +122,24 @@ h1 {
     }
   }
   
+
+  #landing-page {
+      background-image: url("hangMan.png");
+      /* background-repeat: no-repeat; */
+      height: 100%;
+  }
+
+  #chalkboard {
+      background: url('chalkBoard1.png');
+      height: 100%;
+  }
+
+  h1 {
+      color:white;
+  }
+
+
+  h2 {
+      color: white;
+  }
+
