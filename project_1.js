@@ -15,7 +15,7 @@ let objTopic = {
 
 let yay = () => {
     console.log('yay')
-    jSeasons.style.backgroundColor = 'blue'
+    jSeasons.style.backgroundColor = 'orange'
     let season = objTopic.Season
 
 }
